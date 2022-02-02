@@ -1,5 +1,7 @@
 # Inorder, Preorder, Postorder traversal methods
 def traversal(root):
+    res = []
+
     def inorder(root):  # left node right
         if root:
             inorder(root.left)
