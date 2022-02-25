@@ -19,3 +19,18 @@ def rightSideView(root):
     for r in table:
         ans.append(table[r][-1][1])
     return ans
+
+def rightSideView_preorder(root):
+    
+    if not root: return []
+    ans = []
+
+    def dfs(root, depth): #reversed preorder - node - right - left
+        if not root: return
+        if len(ans) == depth:
+            ans.append(root.val)
+        dfs(root.right, depth+1)
+        dfs(root.left, depth + 1)
+
+    dfs(root, 0)
+    return ans
