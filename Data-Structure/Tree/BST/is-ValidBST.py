@@ -1,16 +1,16 @@
 # https://leetcode.com/problems/validate-binary-search-tree/solution/
 
 def isValidBST(root):
-    last = -float("inf")
+    last = float("-inf")
 
     def dfs(root):
         if not root:
             return True  # empty trees are valid BSTs
 
         left = dfs(root.left)
-        if root.val <= self.last:
+        if root.val <= last:
             return False
-        self.last = root.val
+        last = root.val
 
         right = dfs(root.right)
         return left and right

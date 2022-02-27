@@ -2,17 +2,17 @@
 
 
 def getMinimumDifference(root):
-    self.minDiff = self.lastVal = float("inf")
+    minDiff = lastVal = float("inf")
        # traverse inorderly to create a sorted arr
 
-       def dfs(root):
-            if not root:
-                return
+    def dfs(root):
+        if not root:
+            return
 
-            dfs(root.left)
-            self.minDiff = min(abs(root.val - self.lastVal), self.minDiff)
-            self.lastVal = root.val
-            dfs(root.right)
+        dfs(root.left)
+        minDiff = min(abs(root.val - lastVal), minDiff)
+        lastVal = root.val
+        dfs(root.right)
 
-        dfs(root)
-        return self.minDiff
+    dfs(root)
+    return minDiff
